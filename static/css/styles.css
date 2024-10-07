@@ -23,6 +23,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
 }
 
+/*Declaring Container*/
 .container {
     background-color: white;
     padding: 20px;
