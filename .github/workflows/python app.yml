@@ -1,0 +1,42 @@
+name: Python Application
+
+on:
+  push:
+    branches:
+      - main
+      - dev-branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'  # Adjust to your Python version
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        . venv/bin/activate
+        pip install -r requirements.txt
+
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 .
+
+    - name: Run tests
+      run: |
+        . venv/bin/activate
+        # If you have tests, replace this with test commands
+        echo "No tests defined yet."

@@ -46,8 +46,8 @@ label, select, button {
 .dropdown {
     height: 40px;
     border-radius: 5px;
-    padding: 8px; /* Added padding for better usability */
-    border: 1px solid #ccc; /* Added border for better visibility */
+    padding: 8px; 
+    border: 1px solid #ccc; 
 }
 
 button {
@@ -55,9 +55,9 @@ button {
     background-color: #5cb85c;
     color: white;
     border: none;
-    border-radius: 5px; /* Added border-radius for rounded corners */
+    border-radius: 5px; 
     cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition for button hover */
+    transition: background-color 0.3s;
 }
 
 button:hover {
@@ -67,9 +67,9 @@ button:hover {
 #result {
     margin-top: 20px;
     text-align: center;
-    color: #333; /* Change color for better readability */
+    color: #333; 
 }
 
 h2 {
-    margin: 0; /* Removed margin for better alignment */
+    margin: 0; 
 }
