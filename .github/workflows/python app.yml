@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  build:
+  buld:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,6 +30,6 @@ jobs:
 
     - name: Run tests
       run: |
-        source venv/bin/activate        
+        # source venv/bin/activate        
         echo "No tests defined yet."
 
