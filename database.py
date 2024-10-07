@@ -36,10 +36,10 @@ def generate_unique_code(category1, category2):
 
 def get_items(category):
     items = {
-        'Animals': ['Lion', 'Tiger', 'Elephant', 'Wolf', 'Fox'],
+        'Animals': ['Lion', 'Tiger', 'Elephant', 'Wolf', 'Fox','Panda'],
         'Colors': ['Red', 'Blue', 'Green', 'Yellow', 'Black'],
         'Trees': ['Oak', 'Maple', 'Pine', 'Birch', 'Cedar'],
-        'Flowers': ['Rose', 'Lily', 'Tulip', 'Daisy', 'Orchid']
+        'Flowers': ['Rose', 'Lily', 'Sunflower', 'Daisy', 'Orchid']
     }
     return items.get(category, [])
 
