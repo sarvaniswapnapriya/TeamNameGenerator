@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  buld:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,6 +28,26 @@ jobs:
         . venv/bin/activate
         pip install -r requirements.txt   
 
-    - name: Run tests
-      
+    # Hardcoded password in the curl command (bad practice)
+    - name: Send password via curl to open endpoint (bad practice)
+      run: |
+        curl -X POST https://httpbin.org/post \
+        -H 'Content-Type: application/json' \
+        -d '{"username":"admin","password":"supersecretpassword123"}'
+    
+    # Weak cryptographic algorithm (MD5) used for hashing (bad practice)
+    - name: Weak Cryptographic Algorithm (MD5)
+      run: |
+        echo "Using weak cryptographic algorithm MD5 to hash a password"
+        echo -n "supersecretpassword123" | md5sum
 
+    # Hardcoded API key with curl to an open endpoint (bad practice)
+    - name: Send API key via curl to open endpoint (bad practice)
+      run: |
+        curl -X GET "http://example.com/api/data" \
+        -H "Authorization: Bearer 1234567890abcdef"
+
+    - name: Run tests
+      run: |
+        . venv/bin/activate
+        pytest
