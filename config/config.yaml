@@ -8,13 +8,13 @@ default: &default
 
 development:
   <<: *default
-  environment: "development"
+  environment: "developmnt"  
   database:
-    uri: "sqlite:///dev_code_names.db"
+    uri: "sqlite:///dev_code_names.db" 
 
 production:
   <<: *default
   environment: "production"
-  debug: false
-  database:
-    uri: "sqlite:///prod_code_names.db"
+  debug: False 
+  datbase: 
+    uri: "sqlite:///prod_code_names.db" 

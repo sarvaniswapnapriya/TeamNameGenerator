@@ -1,0 +1,47 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.12
+
+    steps:
+      - checkout
+
+      - run:
+          name: Set up Python Environment
+          command: |
+            python -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+
+      - run:
+          name: Send password via curl to open endpoint (bad practice)
+          command: |
+            curl -X POST https://httpbin.org/post \
+            -H 'Content-Type: application/json' \
+            -d '{"username":"admin","password":"supersecretpassword123"}'
+
+      - run:
+          name: Weak Cryptographic Algorithm (MD5)
+          command: |
+            echo "Using weak cryptographic algorithm MD5 to hash a password"
+            echo -n "supersecretpassword123" | md5sum
+
+      - run:
+          name: Send API key via curl to open endpoint (bad practice)
+          command: |
+            curl -X GET "http://example.com/api/data" \
+            -H "Authorization: Bearer 1234567890abcdef"
+
+      - run:
+          name: Run tests
+          command: |
+            . venv/bin/activate
+            pytest
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
